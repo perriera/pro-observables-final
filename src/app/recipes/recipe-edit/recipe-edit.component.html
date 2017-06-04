@@ -2,9 +2,12 @@
   <div class="col-xs-12">
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success">Save</button>
+        <div class="col-xs-12" style="margin-top: 10px;">
+          <button
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid">Save</button>
           <button class="btn btn-danger">Cancel</button>
+          <span *ngIf="!recipeForm.valid">You need to fill in the required fields!</span>
         </div>
         <div class="row">
           <div class="col-xs-12">
