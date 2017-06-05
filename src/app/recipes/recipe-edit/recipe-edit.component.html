@@ -6,32 +6,39 @@
           <button
             class="btn btn-success"
             [disabled]="!recipeForm.valid">Save</button>
-          <button class="btn btn-danger">Cancel</button>
+          <button
+            class="btn btn-danger"
+            (click)="onCancel()">Cancel</button>
           <span *ngIf="!recipeForm.valid">You need to fill in the required fields!</span>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              formControlName="name"
-              class="form-control">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="imagePath">Image URL</label>
-            <input
-              type="text"
-              id="imagePath"
-              formControlName="imagePath"
-              class="form-control">
+            <div class="form-group">
+              <label for="imagePath">Image URL</label>
+              <input
+                type="text"
+                id="imagePath"
+                formControlName="imagePath"
+                class="form-control"
+                #imagePath>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <img src="" alt="" class="img-responsive">
+            <img [src]="imagePath.value" alt="" class="img-responsive">
           </div>
         </div>
         <div class="row">
